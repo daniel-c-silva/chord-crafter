@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🎶 Chord Crafter Beta v1.1</title>
+    <style>
+        body {
+            background: linear-gradient(145deg, #000000, #0f0f0f);
+            color: #00FF99;
+            font-family: "Courier New", Courier, monospace;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00FF99;
+            text-shadow: 0 0 10px #00FF99, 0 0 20px #00FF99;
+            letter-spacing: 2px;
+        }
+
+        #chat-box {
+            background-color: rgba(17, 17, 17, 0.95);
+            border: 2px solid #00FF99;
+            border-radius: 10px;
+            padding: 20px;
+            height: 500px;
+            overflow-y: scroll;
+            font-size: 1.1em;
+            box-shadow: 0 0 15px #00FF99;
+        }
+
+        .message {
+            margin: 10px 0;
+        }
+
+        .user {
+            color: #FF7070;
+        }
+
+        .bot {
+            color: #00FF99;
+        }
+
+        #user-input {
+            width: 70%;
+            padding: 12px;
+            font-size: 18px;
+            background-color: #222;
+            color: #00FF99;
+            border: 2px solid #00FF99;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        #send-btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #000;
+            color: #00FF99;
+            border: 2px solid #00FF99;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: all 0.2s ease;
+        }
+
+        #send-btn:hover {
+            background-color: #003300;
+            animation: pulse 1s infinite alternate;
+        }
+
+        a {
+            color: #00FF99;
+            text-decoration: underline;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        @keyframes pulse {
+            from { box-shadow: 0 0 10px #00FF99; }
+            to { box-shadow: 0 0 25px #00FF99; }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎶 Chord Crafter <span style="font-size: 0.6em; opacity: 0.8;">Beta v1.1</span></h1>
+    
+    <div id="chat-box"></div>
+
+    <input type="text" id="user-input" placeholder="Compose your music instructions..." />
+    <button id="send-btn">🎵 Play</button>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        sendBtn.onclick = () => {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            chatBox.innerHTML += `<div class="message user"><strong>You 🎼:</strong> ${message}</div>`;
+            userInput.value = '';
+
+            fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatBox.innerHTML += `<div class="message bot"><strong>Bot 🎶:</strong> ${data.response}</div>`;
+
+                if (data.midi_b64) {
+                    const link = document.createElement('a');
+                    link.href = 'data:audio/midi;base64,' + data.midi_b64;
+                    link.download = 'generated.mid';
+                    link.textContent = '🎼 Download Your MIDI Track';
+                    chatBox.appendChild(link);
+                }
+
+                chatBox.scrollTop = chatBox.scrollHeight;
+            })
+            .catch(console.error);
+        };
+    </script>
+</body>
+</html>
