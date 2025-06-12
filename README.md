@@ -98,3 +98,7 @@ Acknowledgments
 Powered by OpenAI GPT-4o-mini
 
 MIDI file creation via MIDIUtil
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
