@@ -43,14 +43,10 @@ Running the Web App
 Set your OpenAI API key as an environment variable:
 
 bash
-Copiar
-Editar
 export OPENAI_API_KEY='your_api_key_here'
 Run the Flask app:
 
 bash
-Copiar
-Editar
 python main.py
 Open your browser and navigate to http://localhost:5000
 
@@ -58,8 +54,6 @@ Using the CLI
 Run the CLI interface with:
 
 bash
-Copiar
-Editar
 python cli.py
 Follow the prompts to input your chord progressions and generate MIDI files from the terminal.
 
@@ -76,8 +70,6 @@ static/ — Optional folder for static files like CSS or JS (if you extend UI).
 
 Example
 python
-Copiar
-Editar
 # Example chord progression
 chord_progression = [
     {"chord": "Cmaj7", "duration": 2},
