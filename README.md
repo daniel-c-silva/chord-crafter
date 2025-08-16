@@ -51,7 +51,7 @@ Run the Flask app:
 bash
 Copiar
 Editar
-python app.py
+python main.py
 Open your browser and navigate to http://localhost:5000
 
 Using the CLI
