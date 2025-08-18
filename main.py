@@ -2,9 +2,11 @@ import json
 from openai import OpenAI
 from midiutil import MIDIFile
 import re
+import os
 
 # API key to access OpenAI 
-API_KEY = "Not showing my api key for security reasons."
+API_KEY = os.getenv("OPENAI_API_KEY") # put your own api key
+
 
 # Creates the OpenAI client using the key
 client = OpenAI(api_key = API_KEY)
