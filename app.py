@@ -8,9 +8,12 @@ from main import analyse_music_instructions, MIDIFile, add_chord, add_named_note
 import base64
 import io
 
+from flask_cors import CORS
+
 # Create an instance of the Flask class to start the web application
 app = Flask(__name__)
 
+CORS(app)  # allow frontend to talk to backend
 # Define a route for the homepage ('/') using the HTTP GET method by default
 @app.route('/')
 def home():
