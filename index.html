@@ -117,14 +117,11 @@
         sendBtn.onclick = () => {
             const message = userInput.value.trim();
             if (!message) return;
-             
-            // Display user message
+            //user message
             chatBox.innerHTML += `<div class="message user"><strong>You 🎼:</strong> ${message}</div>`;
             userInput.value = '';
-
-            // Add "Creating your song..." message
+            // bot thing
             chatBox.innerHTML += `<div class="message bot"><strong>Bot:</strong> Creating your song...</div>`;
-            chatBox.scrollTop = chatBox.scrollHeight;
 
             fetch(`${API_URL}/chat`, {
                 method: 'POST',
@@ -133,10 +130,9 @@
             })
             .then(response => response.json())
             .then(data => {
-                // Display GPT message
+                //gpt message
                 chatBox.innerHTML += `<div class="message bot"><strong>Bot 🎶:</strong> ${data.response}</div>`;
-                
-                // ADD MIDI DOWNLOADE IF AVAILABLE
+                // if midi present send download
                 if (data.midi_b64) {
                     const link = document.createElement('a');
                     link.href = 'data:audio/midi;base64,' + data.midi_b64;
