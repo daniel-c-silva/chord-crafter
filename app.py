@@ -13,7 +13,7 @@ from flask_cors import CORS
 # Create an instance of the Flask class to start the web application
 app = Flask(__name__)
 
-CORS(app)  # allow frontend to talk to backend
+CORS(app, origins=["https://chord-crafter-9k6cc9xuc-daniel-c-silvas-projects.vercel.app"]) # allow frontend to talk to backend
 # Define a route for the homepage ('/') using the HTTP GET method by default
 @app.route('/')
 def home():
