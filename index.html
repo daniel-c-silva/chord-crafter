@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,9 +97,12 @@
     <button id="send-btn">🎵 Play</button>
 
     <script>
+        
         const chatBox = document.getElementById('chat-box');
         const userInput = document.getElementById('user-input');
         const sendBtn = document.getElementById('send-btn');
+
+        const API_URL = "https://your-flask-backend.onrender.com";
 
         sendBtn.onclick = () => {
             const message = userInput.value.trim();
@@ -106,7 +111,7 @@
             chatBox.innerHTML += `<div class="message user"><strong>You 🎼:</strong> ${message}</div>`;
             userInput.value = '';
 
-            fetch('/chat', {
+            fetch(`${API_URL}/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: message })
