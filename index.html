@@ -91,15 +91,6 @@
     
     <div id="chat-box"></div>
 
-    <!-- Instruction Section -->
-    <p style="color:#00FF99; font-size:0.9em;">
-    How to use Chord Crafter:<br>
-    - Type a request like "Compose a happy melody in C major" or "Generate a jazz chord progression in G minor".<br>
-    - Use keywords like compose, generate, or create to trigger full music generation.<br>
-    - You can also paste JSON with chords and melody to modify it.<br>
-    - Click Play to get the AI's response and download the MIDI if available.
-    </p>
-
     <input type="text" id="user-input" placeholder="Compose your music instructions..." />
     <button id="send-btn">🎵 Play</button>
 
@@ -126,9 +117,14 @@
         sendBtn.onclick = () => {
             const message = userInput.value.trim();
             if (!message) return;
-
+             
+            // Display user message
             chatBox.innerHTML += `<div class="message user"><strong>You 🎼:</strong> ${message}</div>`;
             userInput.value = '';
+
+            // Add "Creating your song..." message
+            chatBox.innerHTML += `<div class="message bot"><strong>Bot:</strong> Creating your song...</div>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
 
             fetch(`${API_URL}/chat`, {
                 method: 'POST',
@@ -137,8 +133,10 @@
             })
             .then(response => response.json())
             .then(data => {
+                // Display GPT message
                 chatBox.innerHTML += `<div class="message bot"><strong>Bot 🎶:</strong> ${data.response}</div>`;
-
+                
+                // ADD MIDI DOWNLOADE IF AVAILABLE
                 if (data.midi_b64) {
                     const link = document.createElement('a');
                     link.href = 'data:audio/midi;base64,' + data.midi_b64;
