@@ -85,14 +85,7 @@ for _ in range(2):  # repeat twice
     for chord_obj in chord_progression:
         add_chord(midi, chord_obj["chord"], time, chord_obj.get("duration", 1), track=0)
         time += chord_obj.get("duration", 1)
-License
-MIT License
-
-Acknowledgments
-Powered by OpenAI GPT-4o-mini
-
-MIDI file creation via MIDIUtil
-````
+```
 
 ## Audio & MIDI Samples
 
@@ -106,7 +99,16 @@ You can also listen directly in your browser to the mp3 version (POST PLUGIN):
 
 - [Sample MP3](https://drive.google.com/file/d/1yZvPurdVF7j-coBdS2mEI4R6f7xZpS4_/view?usp=sharing)
 
-```bash
+
+## License
+```
+MIT License
+
+Acknowledgments
+Powered by OpenAI GPT-4o-mini
+
+MIDI file creation via MIDIUtil
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
