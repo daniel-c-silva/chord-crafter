@@ -92,7 +92,24 @@ Acknowledgments
 Powered by OpenAI GPT-4o-mini
 
 MIDI file creation via MIDIUtil
+````
 
+## Audio & MIDI Samples
+
+Chord-Crafter generates MIDI files that you can download or play. Some sample files included in this repo:
+
+- [Sample MIDI 1](https://github.com/daniel-c-silva/chord-crafter/blob/main/Assets/generated (3).mid?raw=true)
+
+You can also listen directly in your browser:
+
+### Play Sample 1
+<audio controls>
+  <source src="https://github.com/yourusername/chord-crafter/blob/main/Assets/Audio/sample1.mid?raw=true" type="audio/midi">
+  Your browser does not support the audio element.
+</audio>
+
+```bash
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+```
