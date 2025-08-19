@@ -104,7 +104,7 @@ You can also listen directly in your browser to the mp3 version (POST PLUGIN):
 
 ### Play Sample 1
 <audio controls>
-  <source src="https://github.com/daniel-c-silva/chord-crafter/blob/main/Assets/testfromprompt.mp3?raw=true" type="audio/mpeg">
+  <source src="https://daniel-c-silva.github.io/chord-crafter/Assets/testfromprompt.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
