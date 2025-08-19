@@ -2,6 +2,8 @@
 
 A Python tool that uses OpenAI's **gpt-4o-mini** model and **MIDIUtil** to generate MIDI files from text or structured music instructions. Comes with a Flask-based web interface and a CLI for easy interaction.
 
+![A GIF of the real-time C-nebot dashboard in action](https://github.com/daniel-c-silva/chord-crafter/blob/main/Assets/chordcraft.gif?raw=true)
+
 ---
 
 ## Overview
