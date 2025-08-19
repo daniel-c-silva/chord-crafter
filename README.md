@@ -98,9 +98,9 @@ MIDI file creation via MIDIUtil
 
 Chord-Crafter generates MIDI files that you can download or play. Some sample files included in this repo:
 
-- [Sample MIDI 1](https://github.com/daniel-c-silva/chord-crafter/blob/main/Assets/generated (3).mid?raw=true)
+- [Sample MIDI 1](https://github.com/daniel-c-silva/chord-crafter/blob/main/Assets/generated%20(3).mid?raw=true)
 
-You can also listen directly in your browser:
+You can also listen directly in your browser to the mp3 version (POST PLUGIN):
 
 ### Play Sample 1
 <audio controls>
