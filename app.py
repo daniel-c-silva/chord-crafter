@@ -18,7 +18,7 @@ CORS(app)  # allow frontend to talk to backend
 @app.route('/')
 def home():
     # Tells Flask to send the 'index.html' file to the user's browser when they visit the root URL
-    return render_template('index.html')
+    return jsonify({"message": "API is running"}) # Potentially change this to "render_template("index.html")" if u want to run locally
 
 # Define a route '/chat' that listens for POST requests from the client
 @app.route('/chat', methods=['POST'])
