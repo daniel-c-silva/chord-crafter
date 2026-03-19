@@ -1,37 +1,25 @@
 # chord-crafter
 
-A Python tool that uses OpenAI's **gpt-4o-mini** model and **MIDIUtil** to generate MIDI files from text or structured music instructions. Comes with a Flask-based web interface and a CLI for easy interaction.
+**Prompt and Create, Stop and listen**
 
 ![A GIF of the real-time C-nebot dashboard in action](https://github.com/daniel-c-silva/chord-crafter/blob/main/Assets/chordcraft.gif?raw=true)
 
----
+## **DISCLAIMER** There's a Demo Version, How ever my API token's have ran out.
 
 ## Overview
 
-**chord-crafter** lets you compose music by simply typing chord progressions or melody instructions in natural language or structured format. It uses OpenAI’s GPT model to interpret your input and converts it into MIDI files you can download or play.
+**chord-crafter** lets you compose music by typing chord progressions or melody instructions in natural language. It interprets input and converts it into MIDI files you can download or play.
 
----
 
 ## Features
 
 - Generate chord progressions and melodies from text input
 - Converts instructions into structured chord and note data
 - Creates MIDI files with specified tempo, chords, and melodies
-- Web app interface with chat-like experience for easy input and download
-- CLI mode for quick command-line interaction
+- Web app interface with chat for input and download
 
----
-
-## How It Works
-
-1. **Input:** Provide music instructions as text (e.g., “Play C major, then Am7 for 2 beats”).
-2. **Processing:** The OpenAI GPT-4o-mini model analyzes the instructions and outputs structured music data.
-3. **MIDI Generation:** MIDIUtil adds chords and notes to tracks with specified durations and tempo.
-4. **Output:** MIDI file is created and encoded in base64 to be sent back to the web client or saved locally.
-
----
-
-## Getting Started
+  
+## How to Run Locally
 
 ### Prerequisites
 
@@ -39,53 +27,31 @@ A Python tool that uses OpenAI's **gpt-4o-mini** model and **MIDIUtil** to gener
 - OpenAI API key with access to GPT-4o-mini
 - Install dependencies:
 
-```bash
-pip install Flask MIDIUtil openai
-Running the Web App
-Set your OpenAI API key as an environment variable:
 
-bash
-export OPENAI_API_KEY='your_api_key_here'
-Run the Flask app:
-
-bash
-python main.py
-Open your browser and navigate to http://localhost:5000
-
-Using the CLI
-Run the CLI interface with:
-
-bash
-python cli.py
-Follow the prompts to input your chord progressions and generate MIDI files from the terminal.
-
-Project Structure
-app.py — Flask web app to serve the chat interface and handle music generation requests.
-
-cli.py — Command-line interface for generating music.
-
-main.py — Core functions including music instruction analysis, chord/note adding, and MIDI file handling.
-
-templates/index.html — HTML template for the web UI.
-
-static/ — Optional folder for static files like CSS or JS (if you extend UI).
-
-Example
-python
-# Example chord progression
-chord_progression = [
-    {"chord": "Cmaj7", "duration": 2},
-    {"chord": "Am7", "duration": 1},
-    {"chord": "Dm7", "duration": 1},
-    {"chord": "G7", "duration": 2}
-]
-
-time = 0
-for _ in range(2):  # repeat twice
-    for chord_obj in chord_progression:
-        add_chord(midi, chord_obj["chord"], time, chord_obj.get("duration", 1), track=0)
-        time += chord_obj.get("duration", 1)
+## Backend Setup
 ```
+Prerequisites: Python 3.x, OpenAI API key
+
+cd chord-crafter
+pip install -r requirements.txt
+
+# Set your OpenAI API key
+export OPENAI_API_KEY='your_api_key_here'
+
+# Run the Flask app
+python main.py
+```
+
+## Using the CLI
+```
+python cli.py
+```
+Follow the prompts to input your chord progressions and generate MIDI files.
+
+
+## Web App
+
+Open your browser and navigate to `http://localhost:5000` after running the Flask app.
 
 ## Audio & MIDI Samples
 
@@ -93,23 +59,16 @@ Chord-Crafter generates MIDI files that you can download or play. Some sample fi
 
 - [Sample MIDI](https://github.com/daniel-c-silva/chord-crafter/raw/main/Assets/generated-3.mid)
 
-You can also listen directly in your browser to the mp3 version (POST PLUGIN):
+## Conclusion
 
-### Play Sample
-
-- [Sample MP3](https://drive.google.com/file/d/1yZvPurdVF7j-coBdS2mEI4R6f7xZpS4_/view?usp=sharing)
+Chord-crafter was my first full-stack project, as a musician I always thought of how useful an automated music generation midi app would be, so I decided that if I can't find one I might aswell build it. It was also my first time integrating AI and midi into any project, and while I found OpenAI's api syntax very simple and easy to work with using midi although "intuitive" proved difficult, specially because I had never had to deal with a dictionary function this complex. Being my first real project It really made me understand frontend to backend connection a little bit better.
 
 
 ## License
-```
+
 MIT License
 
-Acknowledgments
+**Acknowledgments:**
 Powered by OpenAI GPT-4o-mini
-
 MIDI file creation via MIDIUtil
 
-## License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-```
